@@ -47,3 +47,4 @@ RUN make CXX=g++-12
 
 # Expose necessary ports
 EXPOSE 8080-8093
+

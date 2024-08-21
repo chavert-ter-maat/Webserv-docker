@@ -21,12 +21,17 @@ stop:
 	@echo "Docker container $(DOCKER_CONTAINER) stopped and removed."
 
 # Remove the Docker image
-clean:
+clean: stop
 	@docker rmi $(DOCKER_IMAGE) || true
 	@echo "Docker image $(DOCKER_IMAGE) removed."
 
+# Stop the Docker container, remove the Docker image, and remove all Docker images
+fclean: clean
+	@docker rmi -f $$(docker images -q) || true
+	@echo "All Docker images removed."
+
 # Rebuild the Docker image and run the container interactively
-re: stop clean build run
+re: stop clean build
 
 # Check if the Docker container is running
 status:
