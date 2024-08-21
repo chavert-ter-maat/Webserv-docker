@@ -42,9 +42,6 @@ COPY ./basic_config.txt .
 # Create necessary directories
 RUN mkdir -p ./html/uploads
 
-# Build the project with debugging and sanitizers enabled
-RUN make CXX=g++-12
-
 # Expose necessary ports
 EXPOSE 8080-8093
 
