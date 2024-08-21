@@ -37,4 +37,4 @@ re: stop clean build
 status:
 	@docker ps -f name=$(DOCKER_CONTAINER)
 
-.PHONY: build run stop clean re status runshell
+.PHONY: build run stop clean fclean re status
