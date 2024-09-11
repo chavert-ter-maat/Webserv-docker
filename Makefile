@@ -10,7 +10,7 @@ build:
 	@echo "Docker image $(DOCKER_IMAGE) built successfully."
 
 # Run the Docker container interactively and start a shell
-run: build
+run:
 	@docker rm -f $(DOCKER_CONTAINER) || true
 	@docker run --name $(DOCKER_CONTAINER) -p $(DOCKER_PORTS):$(DOCKER_PORTS) -it $(DOCKER_IMAGE) /bin/bash
 
