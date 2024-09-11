@@ -38,6 +38,7 @@ RUN git clone https://github.com/chavert-ter-maat/Webserv.git .
 
 # Copy the configuration file into the container
 COPY ./basic_config.txt .
+RUN chmod 644 basic_config.txt
 
 # Create necessary directories
 RUN mkdir -p ./html/uploads
@@ -47,4 +48,6 @@ RUN make CXX=g++-12
 
 # Expose necessary ports
 EXPOSE 8080-8093
+
+ENTRYPOINT [ "./webserv", "/usr/src/app/basic_config.txt"]
 
