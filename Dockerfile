@@ -29,4 +29,5 @@ RUN chmod 644 /usr/src/app/basic_config.txt
 RUN mkdir -p /usr/src/app/html/uploads
 
 EXPOSE 8080-8093
-ENTRYPOINT ["./webserv", "/usr/src/app/basic_config.txt"]
+ENTRYPOINT ["./webserv"]
+CMD ["/usr/src/app/basic_config.txt"]

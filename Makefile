@@ -8,16 +8,21 @@ DOCKER_PORTS := 8080-8093
 build:
 	@docker build -t $(DOCKER_IMAGE) -f $(DOCKERFILE) .
 	@echo "Docker image $(DOCKER_IMAGE) built successfully."
-
-up:
-	docker rm -f $(DOCKER_CONTAINER) || true
+		docker rm -f $(DOCKER_CONTAINER) || true
 	docker run --name $(DOCKER_CONTAINER) \
 		-p 8080-8093:8080-8093 \
 		$(DOCKER_IMAGE)
 	@echo "Open browser > http://localhost:8080/index.html"
 
+# up:
+# 	docker rm -f $(DOCKER_CONTAINER) || true
+# 	docker run --name $(DOCKER_CONTAINER) \
+# 		-p 8080-8093:8080-8093 \
+# 		$(DOCKER_IMAGE)
+# 	@echo "Open browser > http://localhost:8080/index.html"
+
 # Run the Docker container interactively and start a shell
-run:
+shell:
 	@docker rm -f $(DOCKER_CONTAINER) || true
 	@docker run --name $(DOCKER_CONTAINER) -p $(DOCKER_PORTS):$(DOCKER_PORTS) -it $(DOCKER_IMAGE) /bin/bash
 
