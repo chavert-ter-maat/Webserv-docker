@@ -9,6 +9,13 @@ build:
 	@docker build -t $(DOCKER_IMAGE) -f $(DOCKERFILE) .
 	@echo "Docker image $(DOCKER_IMAGE) built successfully."
 
+up:
+	docker rm -f $(DOCKER_CONTAINER) || true
+	docker run --name $(DOCKER_CONTAINER) \
+		-p 8080-8093:8080-8093 \
+		$(DOCKER_IMAGE)
+	@echo "Open browser > http://localhost:8080/index.html"
+
 # Run the Docker container interactively and start a shell
 run:
 	@docker rm -f $(DOCKER_CONTAINER) || true
