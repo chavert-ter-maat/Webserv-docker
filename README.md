@@ -70,18 +70,6 @@ Supports customizable default error pages.
 
 ---
 
-## Project Structure
-.
-├── src/
-├── includes/
-├── Dockerfile
-├── Makefile
-├── basic_config.txt
-├── webserver_subject.pdf
-└── README.md
-
----
-
 ## Docker Setup
 Docker ensures a controlled and reproducible build environment.
 Download Docker:  
