@@ -93,7 +93,6 @@ https://www.docker.com/
 
 From the root of the repository:
 
-```bash
 make build
 make run
 
@@ -106,7 +105,9 @@ make
 To rebuild:
 
 make re
-Running the Server
+
+
+## Running the Server
 
 Inside the Docker shell:
 
@@ -121,7 +122,9 @@ Or use any port defined in basic_config.txt.
 To stop the server:
 
 CTRL + C
-Memory Leak Testing (Valgrind)
+
+
+## Memory Leak Testing (Valgrind)
 
 Valgrind detects memory leaks and invalid memory usage.
 
@@ -135,11 +138,11 @@ Then access the server via browser as usual.
 Stop with:
 
 CTRL + C
-Stress Testing with Siege
+
+
+## Stress Testing with Siege
 
 Siege allows benchmarking under heavy load.
-
-Install Siege on your host machine.
 
 Start the server inside Docker:
 
@@ -151,48 +154,12 @@ siege -b -c250 -t2M http://localhost:8080/index.html
 
 Parameters explained:
 
--b → Benchmark mode (no delay between requests)
-
--c250 → 250 concurrent users
-
--t2M → Run for 2 minutes
+-b     Runs in benchmark mode (no delay between requests)
+-c250  Simulates 250 concurrent users
+-t2M   Runs the test for 2 minutes
 
 After completion, review the Siege performance report.
 
 Stop the server with:
 
 CTRL + C
-Cleaning
-
-Exit the container:
-
-exit
-
-Remove Docker artifacts:
-
-make clean
-Design Highlights
-
-Event-driven architecture using poll()
-
-Clear separation of server and client socket management
-
-Graceful shutdown via signal handling
-
-Logging abstraction for debugging and traceability
-
-Containerized workflow for reproducibility
-
-Notes
-
-Fully testable in a real browser
-
-Designed for concurrency
-
-Built with a focus on correctness and memory safety
-
-Intended to comply with HTTP/1.1 behavior expectations
-
-License
-
-This project was developed for educational purposes.
